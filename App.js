@@ -1,13 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TextInput, SafeAreaView, Button, Alert } from 'react-native';
 
 export default function App() {
+  const [text, onChangeText] = React.useState("");
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.container}>
+      <TextInput style={styles.TextInput} onChangeText={onChangeText} value={text} placeholder="Entrez un texte ici"></TextInput>
+      <Button title="Mon super bouton" onPress={() => Alert.alert('Vous croyez vraiment que ce bouton fonctionne?')}></Button>
       <StatusBar style="auto" />
-    </View>
+    </SafeAreaView>
   );
 }
 
